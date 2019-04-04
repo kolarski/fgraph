@@ -1,11 +1,11 @@
-fGraph  [![npm version](https://badge.fury.io/js/rescheme.svg)](http://badge.fury.io/js/rescheme)  [![Coverage Status](https://coveralls.io/repos/kolarski/rescheme/badge.svg?branch=master)](https://coveralls.io/r/kolarski/f-graph?branch=master)
+fGraph  [![npm version](https://badge.fury.io/js/fgraph.svg)](http://badge.fury.io/js/fgraph) [![Build Status](https://travis-ci.org/kolarski/fgraph.svg?branch=master)](https://travis-ci.org/kolarski/fgraph)
 =======
 
 Functional / TypeScript implementation of Graph with 100% unit test coverage! All methods are pure and the data structures are immutable.
 
 It has build-in functional BFS.
 
-It uses [https://github.com/ramda/ramda](Ramda.JS)
+It uses [Ramda.JS](https://github.com/ramda/ramda)
 
 # Install
 
