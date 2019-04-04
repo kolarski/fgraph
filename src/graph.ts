@@ -69,6 +69,18 @@ const graph = {
     ),
 
     /**
+     * addVertices :: Array<IVertex> -> IGraph -> IGraph
+     * 
+     * Adds multiple Vertices to the graph
+     * @param Array<IVertex> multiple Vertices
+     * @param IGraph Graph
+     * @return IGraph Graph
+     */
+    addVertices: R.curry(
+        (vertices: Array<IVertex>, g: IGraph): IGraph => R.reduce((acc, value) => graph.addVertex(value, acc), g, vertices)
+    ),
+
+    /**
      * getVertexByHash :: String -> IGraph -> IVertex
      * 
      * Return Vertex by Hash
@@ -114,6 +126,18 @@ const graph = {
                 R.assoc('edges', R.__, g)
             )(g)
         }
+    ),
+
+    /**
+     * addEdges :: Array<IEdge> -> IGraph -> IGraph
+     * 
+     * Adds multiple Edges to the graph
+     * @param Array<Iedge> multiple Edges
+     * @param IGraph Graph
+     * @return IGraph Graph
+     */
+    addEdges: R.curry(
+        (edges: Array<IEdge>, g: IGraph): IGraph => R.reduce((acc, value) => graph.addEdge(value, acc), g, edges)
     ),
 
     /**

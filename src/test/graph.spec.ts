@@ -1,9 +1,30 @@
 import Graph from './../graph';
+import * as R from 'ramda';
 import { assert } from 'chai';
 import { IGraph, IVertex, IEdge } from '../interfaces';
 
 describe('Graph', () => {
-
+    it('README example', () => {
+        const result = R.pipe(
+            Graph.newGraph,
+            Graph.addVertices([
+                { name: 'New York' },
+                { name: 'San Francisco' }
+            ]),
+            Graph.addEdges([
+                {
+                    link: ['New York', 'San Francisco'],
+                    distance: 2902,
+                    unit: 'miles'
+                }
+            ]),
+            Graph.BFS('New York')
+        )();
+        assert.deepEqual(result, [
+            { name: 'New York' },
+            { name: 'San Francisco' }
+        ])
+    });
     it('newGraph', () => {
         const newGraph = Graph.newGraph();
 
@@ -19,6 +40,17 @@ describe('Graph', () => {
         const result: IGraph = Graph.addVertex(vertex, Graph.newGraph());
         const expectedGraph: IGraph = {
             vertices: [vertex],
+            edges: []
+        };
+        assert.deepEqual<IGraph>(result, expectedGraph);
+    });
+    it('addVertices', () => {
+        const vertex = { name: "_root" };
+        const vertex2 = { name: "_root2" };
+        const vertices: Array<IVertex> = [vertex, vertex2];
+        const result: IGraph = Graph.addVertices(vertices, Graph.newGraph());
+        const expectedGraph: IGraph = {
+            vertices: vertices,
             edges: []
         };
         assert.deepEqual<IGraph>(result, expectedGraph);
@@ -44,6 +76,31 @@ describe('Graph', () => {
             edges: [{
                 link: ["_root", "articles"]
             }]
+        };
+
+        assert.deepEqual<IGraph>(result, expectedGraph);
+    });
+    it('addEdges', () => {
+        let initialGraph: IGraph = {
+            vertices: [
+                { name: '_root' },
+                { name: 'articles' }
+            ],
+            edges: []
+        };
+
+        const edges = [
+            { link: ["_root", "articles"] },
+            { link: ["articles", "_root"] }
+        ]
+        const result = Graph.addEdges(edges, initialGraph)
+
+        const expectedGraph: IGraph = {
+            vertices: [
+                { name: '_root' },
+                { name: 'articles' }
+            ],
+            edges: edges
         };
 
         assert.deepEqual<IGraph>(result, expectedGraph);

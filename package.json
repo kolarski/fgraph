@@ -1,22 +1,23 @@
 {
   "name": "ts-graph",
-  "version": "1.0.0",
-  "description": "",
-  "main": "app.js",
+  "version": "0.0.1",
+  "description": "Functional / TypeScript implementation of Graph with 100% unit test coverage! All methods are pure and the data structures are immutable. It has build-in functional BFS.",
+  "main": "dist/graph.js",
   "scripts": {
-    "test": "mocha -w"
+    "dev": "tsc -w",
+    "test": "mocha dist/test -w"
   },
   "author": "Alex Kolarski <aleks.rk@gmail.com>",
   "license": "MIT",
   "devDependencies": {
+    "ramda": "0.26.1"
+  },
+  "dependencies": {
+    "@types/ramda": "0.26.1",
     "@types/chai": "4.1.7",
     "@types/mocha": "5.2.6",
     "@types/node": "11.12.2",
     "chai": "4.2.0",
     "mocha": "6.0.2"
-  },
-  "dependencies": {
-    "@types/ramda": "0.26.1",
-    "ramda": "0.26.1"
   }
 }
