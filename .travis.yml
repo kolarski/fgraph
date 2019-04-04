@@ -4,4 +4,4 @@ before_script:
   - npm install
   - tsc
 node_js:
-- "11"
+- "10.14.1"
