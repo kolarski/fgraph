@@ -33,7 +33,7 @@
     "@types/node": "11.12.2",
     "@types/ramda": "0.26.1",
     "chai": "4.2.0",
-    "mocha": "6.0.2",
+    "mocha": "10.2.0",
     "typescript": "3.4.1"
   },
   "dependencies": {
